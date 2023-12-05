@@ -56,4 +56,8 @@ class Customer {
     set address(address: AddressVO) {
         this._address = address;
     }
+
+    get id() {
+        return this._id;
+    }
 }
