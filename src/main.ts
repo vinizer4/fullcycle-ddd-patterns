@@ -1,5 +1,5 @@
-import OrderItem from "./entity/order_item";
-import Order from "./entity/order";
+import OrderItem from "./entity/orderItem/order_item";
+import Order from "./entity/order/order";
 
 
 let customer = new Customer("123", "Wesley Williams");
