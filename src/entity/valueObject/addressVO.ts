@@ -3,7 +3,7 @@
 // Um objeto de valor não pode ser alterado depois de criado.
 // Um objeto de valor nao tem ID
 // Um objeto de valor é imutavel
-class AddressVO {
+export default class AddressVO {
 
     private _street: string;
     private _number: number;
