@@ -15,7 +15,9 @@
 // Infra - Mundo externo (banco de dados, api, etc)
 // - Entity / Model
 // - - customer.ts (persistencia)
-class Customer {
+import AddressVO from "../valueObject/addressVO";
+
+export default class Customer {
 
     private _id: string;
     private _name: string;
@@ -29,7 +31,7 @@ class Customer {
     }
 
     validate() {
-        if (this._name.length < 5) {
+        if (this._name.length === 0) {
             throw new Error('Name is required');
         }
         if (this._id.length === 0) {
@@ -59,5 +61,13 @@ class Customer {
 
     get id() {
         return this._id;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    get isActive() {
+        return this._active;
     }
 }
