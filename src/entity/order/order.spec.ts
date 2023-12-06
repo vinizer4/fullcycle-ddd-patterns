@@ -1,41 +1,44 @@
 import Order from "./order";
 import OrderItem from "../orderItem/order_item";
 
-describe("Order unit test", () => {
 
-    it('should throw error when id is empty', () => {
-
+describe("Order unit tests", () => {
+    it("should throw error when id is empty", () => {
         expect(() => {
-            let order = new Order('', 'customer-id', []);
-        }).toThrowError("Id is required")
+            let order = new Order("", "123", []);
+        }).toThrowError("Id is required");
     });
 
-    it('should throw error when customer id is empty', () => {
-
-            expect(() => {
-                let order = new Order('order-id', '', []);
-            }).toThrowError("CustomerId is required")
-    });
-
-    it('should return total of 0 when no items are passed', () => {
-
+    it("should throw error when customerId is empty", () => {
         expect(() => {
-            let order = new Order('order-id', 'customer-id', []);
-        }).toThrowError("Items qtd must be greater than 0")
+            let order = new Order("123", "", []);
+        }).toThrowError("CustomerId is required");
     });
 
-    it("should calculate total of order", () => {
-        const item = new OrderItem("item-id", "item-name", 10);
-        const item2 = new OrderItem("item-id-2", "item-name-2", 20);
+    it("should throw error when items is empty", () => {
+        expect(() => {
+            let order = new Order("123", "123", []);
+        }).toThrowError("Items are required");
+    });
 
-        const order = new Order("order-id", "customer-id", [item]);
-        const total = order.total();
+    it("should calculate total", () => {
+        const item = new OrderItem("i1", "Item 1", 100, "p1", 2);
+        const item2 = new OrderItem("i2", "Item 2", 200, "p2", 2);
+        const order = new Order("o1", "c1", [item]);
 
-        expect(total).toBe(10);
+        let total = order.total();
 
-        const order2 = new Order("order-id", "customer-id", [item, item2]);
-        const total2 = order2.total();
+        expect(order.total()).toBe(200);
 
-        expect(total2).toBe(30);
+        const order2 = new Order("o1", "c1", [item, item2]);
+        total = order2.total();
+        expect(total).toBe(600);
+    });
+
+    it("should throw error if the item qte is less or equal zero 0", () => {
+        expect(() => {
+            const item = new OrderItem("i1", "Item 1", 100, "p1", 0);
+            const order = new Order("o1", "c1", [item]);
+        }).toThrowError("Quantity must be greater than 0");
     });
 });

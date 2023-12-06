@@ -1,5 +1,5 @@
 import Customer from "./customer";
-import AddressVO from "../dto/addressVO";
+import AddressVO from "../valueObject/addressVO";
 
 describe("Customer unit test", () => {
 

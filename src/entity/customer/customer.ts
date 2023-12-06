@@ -15,7 +15,7 @@
 // Infra - Mundo externo (banco de dados, api, etc)
 // - Entity / Model
 // - - customer.ts (persistencia)
-import AddressVO from "../dto/addressVO";
+import AddressVO from "../valueObject/addressVO";
 
 export default class Customer {
 
