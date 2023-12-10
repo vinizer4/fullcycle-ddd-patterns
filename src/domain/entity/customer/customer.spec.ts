@@ -70,18 +70,18 @@ describe("Customer unit test", () => {
 
     it("should throw error when city is empty", () => {
         expect(() => {
-            let address = new AddressVO("street", 1, "", "zip");
+            let address = new AddressVO("street", 1, "zip", "");
         }).toThrowError("City is required");
     });
 
     it("should throw error when zip is empty", () => {
         expect(() => {
-            let address = new AddressVO("street", 1, "city", "");
+            let address = new AddressVO("street", 1, "", "city");
         }).toThrowError("ZipCode is required");
     });
 
     it("should create address", () => {
-        let address = new AddressVO("street", 1, "city", "zip");
+        let address = new AddressVO("street", 1, "zip", "city");
         expect(address.toString()).toBe("street, 1, city, zip");
     });
 
