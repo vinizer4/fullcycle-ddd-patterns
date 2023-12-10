@@ -3,5 +3,5 @@ export default interface RepositoryInterface<T> {
     find(id: string): Promise<T | null>;
     create(entity: T): Promise<void>;
     update(entity: T): Promise<void>;
-    delete(id: number): Promise<boolean>;
+    delete(id: string): Promise<void>;
 }
