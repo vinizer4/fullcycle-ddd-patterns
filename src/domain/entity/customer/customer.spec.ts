@@ -92,4 +92,12 @@ describe("Customer unit test", () => {
         }).toThrowError("Name is required");
     });
 
+    it("should add reward points", () => {
+        let customer = new Customer("1", "test");
+        expect(customer.rewardPoints).toBe(0);
+        customer.addRewardPoints(10);
+        expect(customer.rewardPoints).toBe(10);
+        customer.addRewardPoints(10);
+        expect(customer.rewardPoints).toBe(20);
+    });
 });
