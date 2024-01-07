@@ -1,15 +1,19 @@
 import {
     Table,
     Model,
+    PrimaryKey,
     Column,
-    PrimaryKey, ForeignKey, BelongsTo, HasMany
-} from 'sequelize-typescript';
+    ForeignKey,
+    BelongsTo,
+    HasMany,
+} from "sequelize-typescript";
 import CustomerModel from "../customer/customer.model";
 import OrderItemModel from "./order-item.model";
 
+
 @Table({
-    tableName: 'orders',
-    timestamps: false
+    tableName: "orders",
+    timestamps: false,
 })
 export default class OrderModel extends Model {
     @PrimaryKey
@@ -25,4 +29,7 @@ export default class OrderModel extends Model {
 
     @HasMany(() => OrderItemModel)
     declare items: OrderItemModel[];
+
+    @Column({ allowNull: false })
+    declare total: number;
 }

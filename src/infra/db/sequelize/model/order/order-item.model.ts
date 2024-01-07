@@ -1,17 +1,17 @@
 import {
     Table,
     Model,
+    PrimaryKey,
     Column,
-    PrimaryKey, ForeignKey, BelongsTo
-} from 'sequelize-typescript';
-import CustomerModel from "../customer/customer.model";
-import Product from "../../../../../domain/entity/product/product";
+    ForeignKey,
+    BelongsTo,
+} from "sequelize-typescript"
 import ProductModel from "../product/product.model";
 import OrderModel from "./order.model";
 
 @Table({
-    tableName: 'orders',
-    timestamps: false
+    tableName: "order_items",
+    timestamps: false,
 })
 export default class OrderItemModel extends Model {
     @PrimaryKey
@@ -23,17 +23,21 @@ export default class OrderItemModel extends Model {
     declare product_id: string;
 
     @BelongsTo(() => ProductModel)
-    declare customer: ProductModel;
+    declare product: ProductModel;
 
     @ForeignKey(() => OrderModel)
+    @Column({ allowNull: false })
     declare order_id: string;
 
-    @Column({ allowNull: false })
-    declare total: number;
+    @BelongsTo(() => OrderModel)
+    declare order: OrderModel;
 
     @Column({ allowNull: false })
     declare quantity: number;
 
     @Column({ allowNull: false })
     declare name: string;
+
+    @Column({ allowNull: false })
+    declare price: number;
 }
