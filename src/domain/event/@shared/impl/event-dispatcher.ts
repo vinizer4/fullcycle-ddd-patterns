@@ -4,8 +4,17 @@ import EventHandlerInterface from "../interface/event-handler.interface";
 
 export default class EventDispatcher implements EventDispatcherInterface {
 
-    register(eventName: string, eventHandler: EventHandlerInterface): void {
+    private eventHandlers: { [eventName: string]: EventHandlerInterface[]; } = {};
 
+    get getEventHandlers(): { [eventName: string]: EventHandlerInterface[]; } {
+        return this.eventHandlers;
+    }
+
+    register(eventName: string, eventHandler: EventHandlerInterface): void {
+        if (!this.eventHandlers[eventName]) {
+            this.eventHandlers[eventName] = [];
+        }
+        this.eventHandlers[eventName].push(eventHandler);
     }
 
     unregister(eventName: string, eventHandler: EventHandlerInterface): void {
