@@ -6,15 +6,15 @@ import Customer from "../../../../domain/customer/entity/customer";
 import AddressVO from "../../../../domain/customer/dto/addressVO";
 import Product from "../../../../domain/product/entity/product";
 
-import CustomerModel from "../../../db/sequelize/model/customer/customer.model";
-import CustomerRepository from "../customer/customer.repository";
+import CustomerModel from "../../../customer/db/model/customer.model";
+import CustomerRepository from "../../../customer/repository/sequelize/customer.repository";
 
-import ProductModel from "../../../db/sequelize/model/product/product.model";
-import ProductRepository from "../product/product.repository";
+import ProductModel from "../../../product/db/model/product.model";
+import ProductRepository from "../../../product/repository/sequelize/product.repository";
 
-import OrderItemModel from "../../../db/sequelize/model/order/order-item.model";
+import OrderItemModel from "../../db/model/order-item.model";
 
-import OrderModel from "../../../db/sequelize/model/order/order.model";
+import OrderModel from "../../db/model/order.model";
 import OrderRepository from "./order.repository";
 
 describe("Order repository test", () => {
