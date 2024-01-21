@@ -1,7 +1,7 @@
 import { Sequelize } from "sequelize-typescript";
 
-import Order from "../../../../domain/checkout/entity/order/order";
-import OrderItem from "../../../../domain/checkout/entity/orderItem/order_item";
+import Order from "../../../../domain/checkout/order/entity/order/order";
+import OrderItem from "../../../../domain/checkout/order/entity/orderItem/order_item";
 import Customer from "../../../../domain/customer/entity/customer";
 import AddressVO from "../../../../domain/customer/dto/addressVO";
 import Product from "../../../../domain/product/entity/product";

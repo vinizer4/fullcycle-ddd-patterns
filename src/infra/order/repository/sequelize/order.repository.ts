@@ -1,7 +1,7 @@
-import Order from "../../../../domain/checkout/entity/order/order";
+import Order from "../../../../domain/checkout/order/entity/order/order";
 import OrderModel from "../../db/model/order.model";
 import OrderItemModel from "../../db/model/order-item.model";
-import OrderItem from "../../../../domain/checkout/entity/orderItem/order_item";
+import OrderItem from "../../../../domain/checkout/order/entity/orderItem/order_item";
 
 
 interface OrderRepositoryInterface {
